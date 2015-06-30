@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Digital Media Form Demo</title>
+        <link href="css/dm.forms.css" rel="stylesheet" />        
+    </head>
+    <body>
+    <h1>Default Form Styles</h1>
+    <form class="dm-form" method="post" action="index.php">
+
+        
+
+        <label for="FirstName" class="required-after">First Name</label>
+        <input id="FirstName" name="FirstName" type="text" required />
+        <span data-valmsg-for="FirstName"></span>
+
+        <label for="LastName" class="required">Last Name</label>
+        <input id="LastName" name="LastName" type="text" required />
+        <span data-valmsg-for="LastName"></span>
+
+        <fieldset class="dm-form-inline">
+            <legend>Date Of Birth</legend>
+
+            <label for="Day">Day</label>
+            <input id="Day" name="Day" type="text" placeholder="DD" />
+
+            <label for="Month">Month</label>
+            <input id="Month" name="Month" type="text" placeholder="MM" />
+
+            <label for="Year">Year</label>
+            <input id="Year" name="Year" type="text" placeholder="YYYY" />
+
+            <input type="hidden" id="DOB" name="DOB" required data-dm-form-value="{Day}/{Month}/{Year}" />
+            <span data-valmsg-for="DOB"></span>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Gender
+            </legend>
+
+            <span class="radiobutton">
+                <input id="Gender-Male" type="radio" name="Gender" value="Male" />
+                <label for="Gender-Male">Male</label>
+            </span>
+
+            <span class="radiobutton">
+                <input id="Gender-Female" type="radio" name="Gender" value="Female" />
+                <label for="Gender-Female">Female</label>
+            </span>
+
+            <span class="radiobutton">
+                <input id="Gender-Other" type="radio" name="Gender" value="Other" />
+                <label for="Gender-Other">I'd prefer not to say</label>
+            </span>
+        </fieldset>
+
+        <label for="Email">Email</label>
+        <input id="Email" name="Email" type="email" required />
+        <span data-valmsg-for="Email"></span>
+
+        <label for="ConfirmEmail">Confirm Email</label>
+        <input id="ConfirmEmail" name="ConfirmEmail" type="email" required />
+        <span data-valmsg-for="ConfirmEmail"></span>
+
+        <label for="Age">Age</label>
+        <input id="Age" name="Age" type="number" required />
+        <span data-valmsg-for="Age"></span>
+
+        <label for="Phone">Phone Number</label>
+        <input id="Phone" name="Phone" type="tel" required / >
+        <span data-valmsg-for="Phone"></span>
+
+        <label for="DOB">Date of Birth</label>
+        <input id="DOB" name="DOB" type="text" />
+
+        <label for="Province">Province</label>
+        <select id="Province" name="Province">
+            <option value="ON">Ontario</option>
+            <option value="QC">Quebec</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NB">New Brunswick</option>
+        </select>
+
+        <label for="Password">Password</label>
+        <input id="Password" name="Password" type="password" />
+
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input id="ConfirmPassword" name="ConfirmPassword" type="password" />
+
+        <label for="Terms">Terms</label>
+        <div id="Terms" class="terms">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula libero, sodales sed finibus non, fermentum nec libero. Sed dapibus nisi sit amet sodales mollis. Quisque ut luctus nisi. Nulla id nisi porttitor, vestibulum ipsum ut, scelerisque massa. Ut non velit convallis, egestas urna sit amet, iaculis felis. Nullam sit amet dignissim sapien, vitae suscipit nunc. Morbi non nisi vehicula, iaculis est et, mollis metus. Morbi in libero tortor. Nam sit amet ullamcorper lacus. Sed dapibus, sem et tincidunt imperdiet, est neque molestie augue, in porttitor ex mauris vel mauris. Nullam nulla turpis, hendrerit in sagittis at, dictum nec lacus. Donec elementum luctus elit. Aenean at porttitor leo, at consectetur velit.</p>
+        </div>
+        <span data-valmsg-for="Terms" class="field-validation-valid">
+            You must read the terms and conditions
+        </span>
+
+        <div class="checkbox">
+            <input type="checkbox" id="AcceptTerms" name="AcceptTerms" />
+            <label for="AcceptTerms">
+                Do you agree to the terms and conditions
+            </label>
+            <span data-valmsg-for="AcceptTerms"></span>
+        </div>
+
+        <input type="checkbox" id="DemoCheckbox" name="DemoCheckbox" />
+        <label for="DemoCheckbox">
+            Do you agree to the terms and conditions
+        </label>
+
+        <fieldset>
+            <legend>
+                Would you like to receive email communications?
+            </legend>
+            <span class="radiobutton">
+                <input id="EmailOptIn-Yes-Fancy" type="radio" name="EmailOptIn-Fancy" value="Yes" />
+                <label for="EmailOptIn-Yes-Fancy">Yes</label>
+            </span>
+
+            <span class="radiobutton">
+                <input id="EmailOptIn-No-Fancy" type="radio" name="EmailOptIn-Fancy" value="No" />
+                <label for="EmailOptIn-No-Fancy">No</label>
+            </span>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Would you like to receive email communications?
+            </legend>
+            <input id="EmailOptIn-Yes" type="radio" name="EmailOptIn" value="Yes" />
+            <label for="EmailOptIn-Yes">Yes</label>
+
+            <input id="EmailOptIn-No" type="radio" name="EmailOptIn" value="No" />
+            <label for="EmailOptIn-No">No</label>
+        </fieldset>
+
+        <input type="submit" value="Submit" />
+    </form>
+    <h1>Horizontal Form</h1>
+    <form class="dm-form dm-form-horizontal">
+
+        <label for="FirstName" class="required-after">First Name</label>
+        <input id="FirstName" name="FirstName" type="text" placeholder="First Name" />
+
+        <label for="LastName" class="required">Last Name</label>
+        <input id="LastName" name="LastName" type="text" placeholder="Last Name" />
+
+        <label for="Email">Email</label>
+        <input id="Email" name="Email" type="email" placeholder="Email" />
+
+        <label for="ConfirmEmail">Confirm Email</label>
+        <input id="ConfirmEmail" name="ConfirmEmail" type="email" placeholder="Confirm Email" />
+
+        <label for="Age">Age</label>
+        <input id="Age" name="Age" type="number" placeholder="Age" />
+
+        <label for="Phone">Phone Number</label>
+        <input id="Phone" name="Phone" type="tel" placeholder="Phone Number" />
+
+        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
+        <a href="#" class="dm-form-btn-submit">Submit</a>
+    </form>
+    <h1>Inline Form</h1>
+    <form class="dm-form dm-form-inline">
+
+        <label for="Email">Email</label>
+        <input id="Email" name="Email" type="email" placeholder="Email" />
+
+        <label for="Password">Password</label>
+        <input id="Password" name="Password" type="password" placeholder="passowrd" />
+
+        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
+        <a href="#" class="dm-form-btn-submit">Submit</a>
+        
+    </form>
+
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>    
+    <script src="../dm.core/scripts/dist/dm.core.js"></script>
+    <script src="scripts/dist/dm.forms.js"></script>
+    <script>
+        $(function () {
+			
+            $('form').validate({  // options structure passed to jQuery Validate's validate() method
+                errorClass: dm.forms.errorClass,
+                validClass: dm.forms.validClass,
+                errorElement: dm.forms.errorElement,
+                errorPlacement: function (error, element) {
+                    dm.forms.errorPlacement(error, element);
+                }
+            });
+$('form').on('submit', function(e) {
+	e.preventDefault();
+});
+            $("#AcceptTerms")
+            .rules("add", {
+                mustbetrue: true,
+                messages: {
+                    mustbetrue: "Please accept the terms and conditions!"
+                }
+            });
+
+            $('#DOB')
+            .rules("add", {
+                validatedateofbirth: {
+                    daySelector: "#Day",
+                    monthSelector: "#Month",
+                    yearSelector: "#Year"
+                },
+                validatedatedobrestriction: {
+                    daySelector: "#Day",
+                    monthSelector: "#Month",
+                    yearSelector: "#Year",
+                    minDate: "01/01/1900",
+                    ageLimit: "16"
+                },
+                messages: {
+                    validatedateofbirth: "You must enter a valid date",
+                    validatedatedobrestriction: "You must be older then 16 years."
+                }
+            });
+        });
+    </script>
+</body>
+</html>

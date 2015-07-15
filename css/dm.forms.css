@@ -331,8 +331,8 @@
   background-color: #999 !important;
   border-color: #999 !important;
 }
-.dm-form .field-validation-valid,
-.dm-form validation-valid {
+.dm-form span.field-validation-valid,
+.dm-form span.validation-valid {
   opacity: 0;
   height: 0;
 }

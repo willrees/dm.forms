@@ -7,7 +7,7 @@
     </head>
     <body>
     <h1>Default Form Styles</h1>
-    <form class="dm-form" method="post" action="index.php">
+    <form class="dm-form" method="get" action="">
 
         
 
@@ -191,11 +191,13 @@
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>    
-    <script src="../dm.core/scripts/dist/dm.core.js"></script>
+    <script src="http://localhost:8001/scripts/dist/dm.core.js"></script>
     <script src="scripts/dist/dm.forms.js"></script>
     <script>
         $(function () {
 			
+            dm.bind();
+            
             $('form').validate({  // options structure passed to jQuery Validate's validate() method
                 errorClass: dm.forms.errorClass,
                 validClass: dm.forms.validClass,
@@ -204,9 +206,7 @@
                     dm.forms.errorPlacement(error, element);
                 }
             });
-$('form').on('submit', function(e) {
-	e.preventDefault();
-});
+            
             $("#AcceptTerms")
             .rules("add", {
                 mustbetrue: true,
@@ -234,6 +234,8 @@ $('form').on('submit', function(e) {
                     validatedatedobrestriction: "You must be older then 16 years."
                 }
             });
+            
+            dm.forms.atLeastSelectOneSelectors = [""];
         });
     </script>
 </body>

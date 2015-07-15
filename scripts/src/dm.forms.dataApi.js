@@ -26,8 +26,6 @@
 			tempFormat = tempFormat.substr(tempFormat.indexOf("}") + 2);
 		}
 
-		console.log(selectors);
-
 		selectors.forEach(function (item, index, arr) {
 			$(item.selector)
 				.off('change.dm-form-value')

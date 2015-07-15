@@ -8,9 +8,9 @@
             dist: {
                 src: [                    
                     'scripts/src/dm.forms.js',
-                    'scripts/src/dm.forms.validation.js',
-                    'scripts/src/dm.forms.dataApi.js',
-                    'scripts/src/dm.forms.terms.js',
+                    //'scripts/src/dm.forms.validation.js',
+                    //'scripts/src/dm.forms.dataApi.js',
+                    //'scripts/src/dm.forms.terms.js',
                 ],
                 dest: 'scripts/dist/dm.forms.js',
             }

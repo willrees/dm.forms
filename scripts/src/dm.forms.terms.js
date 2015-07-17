@@ -1,10 +1,8 @@
-﻿/// <reference path="../../typescript.definitions/dm.core.d.ts" />
-
-(function ($, options) {
+﻿(function ($, options) {
     "use strict";
     
     //Namespace entry point    
-    $(options.selector).each(function () {
+    $(options.selector).each(function () {        
         var $terms = $(this);
         var $form = $terms.parents('form');
         var $btn = $form.find('input[type="submit"],button[type="submit"],a.dm-form-btn-submit');
@@ -27,7 +25,7 @@
             if (hasRead($terms)) {
                 //valid
                 $errorText.removeClass('validation-error');
-                $errorText.addClass('validation-valid');
+                $errorText.addClass('validation-valid');                
             } else {
                 //invalid
                 $errorText.removeClass('validation-valid');
@@ -52,4 +50,4 @@
             }
         });
     });
-})(jQuery, dm.forms.options.terms);
+})(jQuery, dm.config.forms.terms);

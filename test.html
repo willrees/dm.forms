@@ -55,6 +55,7 @@
                 <input id="Gender-Other" type="radio" name="Gender" value="Other" />
                 <label for="Gender-Other">I'd prefer not to say</label>
             </span>
+            <span data-valmsg-for="Gender"></span>
         </fieldset>
 
         <label for="Email">Email</label>
@@ -152,23 +153,24 @@
     <h1>Horizontal Form</h1>
     <form class="dm-form dm-form-horizontal">
 
-        <label for="FirstName" class="required-after">First Name</label>
-        <input id="FirstName" name="FirstName" type="text" placeholder="First Name" />
+        <label for="FormTwo-FirstName" class="required-after">First Name</label>
+        <input id="FormTwo-FirstName" name="FormTwo-FirstName" type="text" placeholder="First Name" required />
+        <span data-valmsg-for="FormTwo-FirstName"></span>
 
-        <label for="LastName" class="required">Last Name</label>
-        <input id="LastName" name="LastName" type="text" placeholder="Last Name" />
+        <label for="FormTwo-LastName" class="required">Last Name</label>
+        <input id="FormTwo-LastName" name="FormTwo-LastName" type="text" placeholder="Last Name" />
 
-        <label for="Email">Email</label>
-        <input id="Email" name="Email" type="email" placeholder="Email" />
+        <label for="FormTwo-Email">Email</label>
+        <input id="FormTwo-Email" name="FormTwo-Email" type="email" placeholder="Email" />
 
-        <label for="ConfirmEmail">Confirm Email</label>
-        <input id="ConfirmEmail" name="ConfirmEmail" type="email" placeholder="Confirm Email" />
+        <label for="FormTwo-ConfirmEmail">Confirm Email</label>
+        <input id="FormTwo-ConfirmEmail" name="FormTwo-ConfirmEmail" type="email" placeholder="Confirm Email" />
 
-        <label for="Age">Age</label>
-        <input id="Age" name="Age" type="number" placeholder="Age" />
+        <label for="FormTwo-Age">Age</label>
+        <input id="FormTwo-Age" name="FormTwo-Age" type="number" placeholder="Age" />
 
-        <label for="Phone">Phone Number</label>
-        <input id="Phone" name="Phone" type="tel" placeholder="Phone Number" />
+        <label for="FormTwo-Phone">Phone Number</label>
+        <input id="FormTwo-Phone" name="FormTwo-Phone" type="tel" placeholder="Phone Number" />
 
         <input type="submit" value="Submit" />
         <button type="submit">Submit</button>
@@ -176,12 +178,15 @@
     </form>
     <h1>Inline Form</h1>
     <form class="dm-form dm-form-inline">
-
-        <label for="Email">Email</label>
-        <input id="Email" name="Email" type="email" placeholder="Email" />
-
-        <label for="Password">Password</label>
-        <input id="Password" name="Password" type="password" placeholder="passowrd" />
+        
+        <div class="form-control">
+            <label for="FormThree-Email">Email</label>
+            <input id="FormThree-Email" name="FormThree-Email" type="email" placeholder="Email" required />
+            <span data-valmsg-for="FormThree-Email"></span>
+        </div>
+        
+        <label for="FormThree-Password">Password</label>
+        <input id="FormThree-Password" name="FormThree-Password" type="password" placeholder="passowrd" />
 
         <input type="submit" value="Submit" />
         <button type="submit">Submit</button>
@@ -190,22 +195,23 @@
     </form>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>    
-    <script src="http://localhost:8001/scripts/dist/dm.core.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>    
+    <script src="../dm.core/scripts/dist/dm.core.js"></script>
     <script src="scripts/dist/dm.forms.js"></script>
     <script>
         $(function () {
 			
             dm.bind();
-            
-            $('form').validate({  // options structure passed to jQuery Validate's validate() method
-                errorClass: dm.forms.errorClass,
-                validClass: dm.forms.validClass,
-                errorElement: dm.forms.errorElement,
-                errorPlacement: function (error, element) {
-                    dm.forms.errorPlacement(error, element);
-                }
-            });
+            $('form').each(function(){
+                $(this).validate({  // options structure passed to jQuery Validate's validate() method
+                    errorClass: dm.forms.errorClass,
+                    validClass: dm.forms.validClass,
+                    errorElement: dm.forms.errorElement,
+                    errorPlacement: function (error, element) {
+                        dm.forms.errorPlacement(error, element);
+                    }
+                });
+            });           
             
             $("#AcceptTerms")
             .rules("add", {
@@ -235,7 +241,14 @@
                 }
             });
             
-            dm.forms.atLeastSelectOneSelectors = [""];
+            $('input[name="Gender"]').rules("add", {
+                selectone: true,
+                messages: {
+                    selectone: "You must select gender"
+                }
+            });
+            
+            $('form').eq(0).valid();
         });
     </script>
 </body>

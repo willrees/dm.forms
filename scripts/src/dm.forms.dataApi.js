@@ -1,8 +1,6 @@
-﻿/// <reference path="../../typescript.definitions/dm.core.d.ts" />
-
-(function ($, context) {
+﻿(function ($, context) {
 	"use strict";
-
+	
     //data-dm-form-value
 	$('input[data-dm-form-value]').each(function () {
 		var $compositeInput = $(this);

@@ -127,15 +127,14 @@
   font-size: 16px;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  line-height: 30px;
-  padding: 0 10px;
+  padding: 6px 10px;
 }
 .dm-form input[type="text"],
 .dm-form input[type="password"],
 .dm-form input[type="email"],
 .dm-form input[type="number"],
 .dm-form input[type="tel"] {
-  line-height: 30px;
+  padding: 6px 10px;
 }
 .dm-form select {
   height: 32px;
@@ -408,7 +407,15 @@
 .dm-form-inline input[type="number"],
 .dm-form-inline input[type="tel"],
 .dm-form-inline textarea,
-.dm-form-inline select {
+.dm-form-inline select,
+.dm-form-inline .form-control {
   display: inline;
   width: auto;
+}
+.dm-form-inline .form-control {
+  display: inline-block;
+}
+.dm-form-inline span.field-validation-error,
+.dm-form-inline span.validation-error {
+  position: absolute;
 }

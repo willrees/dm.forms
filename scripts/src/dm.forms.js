@@ -1,6 +1,4 @@
-/// <reference path="../../typescript.definitions/dm.core.d.ts""/>
-
-dm.createComponent("forms", function ($) {
+dm.globalComponentFactory("forms", function ($) {
 	var context = {};
     
 	//Add custom validation methods
@@ -65,22 +63,15 @@ dm.createComponent("forms", function ($) {
         });
         
         //SELECTONE
-        context.atLeastSelectOneSelectors = context.atLeastSelectOneSelectors || [];
-        context.atLeastSelectOneSelectors.forEach(function (item, index, arr) {
-            var validationSelector = item;
-            if ($.validator) {
-                validationType = "selectone";
-
-                $.validator.addMethod(validationType, function (value, element, params) {
-                    return $('input[name=' + $(element).attr('name') + ']:checked').length > 0;
-                });
-
-                $.validator.addClassRules(validationSelector, { "selectone": true });
-
-                var errorMessage = $('.' + validationSelector).eq(0).attr('data-val-required');
-                $.validator.messages.selectone = errorMessage;
-            }
-        }); 
+        validationType = "selectone";
+        if ($.validator) {
+            $.validator.addMethod(validationType, function (value, element, params) {                                    
+                return $('input[name=' + $(element).attr('name') + ']:checked').length > 0;
+            });
+        }           
+        if ($.validator.unobtrusive) {
+            $.validator.unobtrusive.adapters.addBool("selectone")
+        }        
         
         $.validator.addMethod("mustbetrue", function (value, element, param) {
             return element.checked;
@@ -95,12 +86,10 @@ dm.createComponent("forms", function ($) {
             var settings = jQuery.extend(true, defaults, options);
     
             $.validator.setDefaults(settings);
-        };  
+        };
+        
+        setJqueryValidationDefaults(context.jqueryValDefaults || {});  
     }
-    
-    (function () {
-        setJqueryValidationDefaults(context.jqueryValDefaults || {});       
-    })();
     
     //Defaults for jquery validation. These should not be changed and are only used if
     //in sites using stock jquery validation plugin. ASP.NET MVC sites will not use
@@ -110,7 +99,7 @@ dm.createComponent("forms", function ($) {
     context.errorElement = "span";
     context.errorPlacement = function (error, element) {
         var name = $(element).attr('name');
-        error.insertAfter($('[data-valmsg-for="' + name + '"]'));
+        error.appendTo($('[data-valmsg-for="' + name + '"]'));
     };
     
     return context;
@@ -136,4 +125,4 @@ dm.createComponent("forms", function ($) {
             }
         }
     }
-}, jQuery);
+}, [jQuery]);

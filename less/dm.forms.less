@@ -83,9 +83,8 @@
         select {
             font-size: @dm-form-input-fontSize;            
             border: @dm-form-input-border;
-            border-radius: @dm-form-input-borderRadius;
-            line-height: @dm-form-input-height;
-            padding: 0 10px;
+            border-radius: @dm-form-input-borderRadius;            
+            padding: ((@dm-form-input-height - 2 - @dm-form-input-fontSize) / 2) 10px;
             
         } 
 
@@ -94,7 +93,7 @@
         input[type="email"],
         input[type="number"],
         input[type="tel"] {
-            line-height: @dm-form-input-height;
+            padding: ((@dm-form-input-height - 2 - @dm-form-input-fontSize) / 2) 10px;
         }  
 
     //Inputs.select
@@ -390,8 +389,15 @@
     input[type="number"],
     input[type="tel"],
     textarea,
-    select {
+    select,
+    .form-control {
         display: inline;
         width: auto;
+    }
+    .form-control {
+        display: inline-block;
+    }
+    span.field-validation-error, span.validation-error {
+        position:absolute;
     }
 }

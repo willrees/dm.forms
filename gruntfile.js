@@ -7,22 +7,13 @@
         concat: {
             dist: {
                 src: [                    
-                    'scripts/src/dm.forms.js',
-                    //'scripts/src/dm.forms.validation.js',
-                    //'scripts/src/dm.forms.dataApi.js',
-                    //'scripts/src/dm.forms.terms.js',
+                    'scripts/src/dm.forms.js',                    
+                    'scripts/src/dm.forms.dataApi.js',
+                    'scripts/src/dm.forms.terms.js',
                 ],
                 dest: 'scripts/dist/dm.forms.js',
             }
-        },
-        uglify: {
-            dist: {
-                files: {
-                    'scripts/dist/dm.forms.min.js': 'scripts/dist/dm.forms.js',
-                    'css/dm.forms.min.css': 'css/dm.forms.css'
-                }
-            }
-        },
+        },       
         less: {
             development: {
                 files: {
@@ -33,7 +24,7 @@
         watch: {
             scripts: {
                 files: ['scripts/**/*.js'],
-                tasks: ['less', 'concat', 'uglify'],
+                tasks: ['less', 'concat'],
                 options: {
                     spawn: false
                 },
@@ -56,5 +47,5 @@
     grunt.loadNpmTasks('grunt-contrib-less');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['less','concat', 'uglify']);
+    grunt.registerTask('default', ['less','concat']);
 };
